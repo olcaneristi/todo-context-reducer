@@ -1,0 +1,31 @@
+{
+  "name": "react-todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "nanoid": "^4.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-scripts": "4.0.3",
+    "react-toastify": "9.0.3",
+    "react-transition-group": "^4.4.2",
+    "sass": "^1.52.3"
+  },
+  "devDependencies": {
+    "react-error-overlay": "^6.0.9"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
