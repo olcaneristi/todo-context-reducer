@@ -4,13 +4,13 @@ export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const UPDATE_TODO = 'UPDATE_TODO';
 
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE',
+export const TodoFilters = {
+  SHOW_ALL_TODOS: 'SHOW_ALL_TODOS',
+  SHOW_COMPLETED_TODOS: 'SHOW_COMPLETED_TODOS',
+  SHOW_ACTIVE_TODOS: 'SHOW_ACTIVE_TODOS',
 };
 
-const toDoReducer = (state, { type, payload }) => {
+const todoReducer = (state, { type, payload }) => {
   switch (type) {
     case CHANGE_FILTER:
       return { ...state, filter: payload };
@@ -40,4 +40,4 @@ const toDoReducer = (state, { type, payload }) => {
   }
 };
 
-export default toDoReducer;
+export default todoReducer;

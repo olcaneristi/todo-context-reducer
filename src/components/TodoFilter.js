@@ -1,28 +1,27 @@
 import React, { useContext } from 'react';
 import Button from './Button';
-import IconMenu from '../assets/icons/IconMenu';
-import IconMenuFill from '../assets/icons/IconMenuFill';
-import { CHANGE_FILTER, VisibilityFilters } from '../reducers/todos';
+import { IconMenu, IconMenuFill } from '../assets/icons/Icons';
+import { CHANGE_FILTER, TodoFilters } from '../reducers/todos';
 import { TodoContext } from '../contexts/todos';
 
-const BUTTONS_FILTER = [
+const filterTodos = [
   {
     id: 1,
-    caption: 'All',
+    title: 'All',
     type: CHANGE_FILTER,
-    filter: VisibilityFilters.SHOW_ALL,
+    filter: TodoFilters.SHOW_ALL_TODOS,
   },
   {
     id: 2,
-    caption: 'Active',
+    title: 'Active',
     type: CHANGE_FILTER,
-    filter: VisibilityFilters.SHOW_ACTIVE,
+    filter: TodoFilters.SHOW_ACTIVE_TODOS,
   },
   {
     id: 3,
-    caption: 'Completed',
+    title: 'Completed',
     type: CHANGE_FILTER,
-    filter: VisibilityFilters.SHOW_COMPLETED,
+    filter: TodoFilters.SHOW_COMPLETED_TODOS,
   },
 ];
 
@@ -31,21 +30,21 @@ const TodoFilter = () => {
 
   return (
     <section className="todo__filter">
-      {BUTTONS_FILTER.map(({ id, caption, type, filter }) => (
+      {filterTodos.map(todo => (
         <Button
-          disabled={state.filter === filter}
-          onClick={() => dispatch({ type, payload: filter })}
-          key={id}
+          disabled={state.filter === todo?.filter}
+          onClick={() => dispatch({ type: todo?.type, payload: todo?.filter })}
+          key={todo?.id}
           className={`todo__filter__button ${
-            state.filter === filter ? 'todo__filter__button--active' : ''
+            state.filter === todo?.filter ? 'todo__filter__button--active' : ''
           }`}
         >
-          {state.filter === filter ? (
+          {state.filter === todo?.filter ? (
             <IconMenuFill width="17" height="17" />
           ) : (
             <IconMenu width="17" height="17" color={'#878787'} />
           )}
-          <span>{caption}</span>
+          <span>{todo?.title}</span>
         </Button>
       ))}
     </section>

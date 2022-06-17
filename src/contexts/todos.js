@@ -1,15 +1,15 @@
 import React, { useReducer, createContext, useEffect } from 'react';
-import toDoReducer, { VisibilityFilters } from './../reducers/todos';
+import todoReducer, { TodoFilters } from './../reducers/todos';
 
 const TodoContext = createContext();
 
 const initialState = {
-  filter: VisibilityFilters.SHOW_ALL,
+  filter: TodoFilters.SHOW_ALL_TODOS,
   todos: localStorage.getItem('todos') == null ? [] : JSON.parse(localStorage.getItem('todos')),
 };
 
 function TodoContextProvider(props) {
-  const [state, dispatch] = useReducer(toDoReducer, initialState);
+  const [state, dispatch] = useReducer(todoReducer, initialState);
   const value = { state, dispatch };
 
   useEffect(() => {

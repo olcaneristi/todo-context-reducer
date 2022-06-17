@@ -1,17 +1,17 @@
 import React, { useContext, useEffect } from 'react';
 import Todo from './Todo';
-import { VisibilityFilters } from './../reducers/todos';
+import { TodoFilters } from './../reducers/todos';
 import { TodoContext } from './../contexts/todos';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const applyFilter = state => {
   const { filter, todos } = state;
   switch (filter) {
-    case VisibilityFilters.SHOW_ALL:
+    case TodoFilters.SHOW_ALL_TODOS:
       return todos;
-    case VisibilityFilters.SHOW_COMPLETED:
+    case TodoFilters.SHOW_COMPLETED_TODOS:
       return todos.filter(t => t.completed);
-    case VisibilityFilters.SHOW_ACTIVE:
+    case TodoFilters.SHOW_ACTIVE_TODOS:
       return todos.filter(t => !t.completed);
     default:
       throw new Error('Unknown filter: ' + filter);
@@ -21,8 +21,6 @@ const applyFilter = state => {
 const TodoList = () => {
   const { state } = useContext(TodoContext);
   const todos = applyFilter(state);
-
-  console.log(state);
 
   return (
     <>
@@ -38,9 +36,9 @@ const TodoList = () => {
         <div className="todo__not__found">
           <p>Todo not found. 😔 </p>
           <p>{`Please ${
-            (state.filter === 'SHOW_ALL' && 'enter new todos') ||
-            (state.filter === 'SHOW_ACTIVE' && 'assign new todos') ||
-            (state.filter === 'SHOW_COMPLETED' && 'complete todos')
+            (state.filter === 'SHOW_ALL_TODOS' && 'enter new todos') ||
+            (state.filter === 'SHOW_ACTIVE_TODOS' && 'assign new todos') ||
+            (state.filter === 'SHOW_COMPLETED_TODOS' && 'complete todos')
           } and see the magic. 🚀`}</p>
         </div>
       )}
