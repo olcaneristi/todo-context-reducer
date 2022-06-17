@@ -2,10 +2,7 @@ import React, { useContext } from 'react';
 import { TOGGLE_TODO, REMOVE_TODO, UPDATE_TODO } from './../reducers/todos';
 import { TodoContext } from './../contexts/todos';
 import { toast } from 'react-toastify';
-import IconNotChecked from '../assets/icons/IconNotChecked';
-import IconChecked from '../assets/icons/IconChecked';
-import IconDelete from '../assets/icons/IconDelete';
-import IconEdit from '../assets/icons/IconEdit';
+import { IconNotChecked, IconChecked, IconDelete, IconEdit } from '../assets/icons/Icons';
 
 const Todo = ({ todo }) => {
   const { dispatch } = useContext(TodoContext);

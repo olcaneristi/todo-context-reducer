@@ -3,7 +3,7 @@ import { ADD_TODO } from './../reducers/todos';
 import { nanoid } from 'nanoid';
 import { TodoContext } from './../contexts/todos';
 import { toast } from 'react-toastify';
-import IconAdd from '../assets/icons/IconAdd';
+import { IconAdd } from '../assets/icons/Icons';
 
 const AddTodo = () => {
   const { dispatch } = useContext(TodoContext);
@@ -20,6 +20,7 @@ const AddTodo = () => {
         id: nanoid(),
         completed: false,
         text: input,
+        createdBy: 'ogulcan',
       },
     });
     setInput('');
