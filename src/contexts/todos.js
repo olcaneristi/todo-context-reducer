@@ -5,7 +5,7 @@ const TodoContext = createContext();
 
 const initialState = {
   filter: TodoFilters.SHOW_ALL_TODOS,
-  todos: localStorage.getItem('todos') == null ? [] : JSON.parse(localStorage.getItem('todos')),
+  todos: localStorage.getItem('todos') === null ? [] : JSON.parse(localStorage.getItem('todos')),
 };
 
 function TodoContextProvider(props) {
